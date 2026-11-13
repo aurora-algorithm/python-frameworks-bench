@@ -1,0 +1,1506 @@
+{
+ "uid": "live",
+ "title": "Live: server under load",
+ "editable": false,
+ "graphTooltip": 1,
+ "time": {
+  "from": "now-1m",
+  "to": "now"
+ },
+ "refresh": "1s",
+ "timezone": "utc",
+ "schemaVersion": 41,
+ "timepicker": {
+  "refresh_intervals": [
+   "1s",
+   "5s",
+   "10s",
+   "30s"
+  ]
+ },
+ "panels": [
+  {
+   "id": 3,
+   "type": "timeseries",
+   "title": "Requests per second",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 9
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum(rate(requests_total[3s])) or vector(0)",
+     "legendFormat": "server",
+     "range": true
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0,
+     "min": 0,
+     "custom": {
+      "lineWidth": 4,
+      "fillOpacity": 0,
+      "showPoints": "never",
+      "spanNulls": false
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#F3F1EC"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI, return type"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#F3F1EC"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-w1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 1 worker"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#ABA69C"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-w4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 4 workers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FFCC66"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-t8"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 8 threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#7FB2FF"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-t8"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-p4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 processes"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-p4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar, 8 processes"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-ft4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar, 8 free-threaded threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-ft4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 free-threaded threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "server"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Python server"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "postgres"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Postgres"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4169E1"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "oha"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "oha (load)"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#ABA69C"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom",
+     "showLegend": true
+    },
+    "tooltip": {
+     "mode": "multi",
+     "sort": "desc"
+    }
+   }
+  },
+  {
+   "id": 1,
+   "type": "timeseries",
+   "title": "CPU by process, in cores",
+   "gridPos": {
+    "x": 0,
+    "y": 9,
+    "w": 24,
+    "h": 9
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "prom"
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "expr": "sum by (groupname) (rate(namedprocess_namegroup_cpu_seconds_total{groupname=~\"server|postgres|oha\"}[3s]))",
+     "legendFormat": "{{groupname}}",
+     "range": true
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 1,
+     "min": 0,
+     "custom": {
+      "lineWidth": 4,
+      "fillOpacity": 0,
+      "showPoints": "never",
+      "spanNulls": false,
+      "thresholdsStyle": {
+       "mode": "dashed"
+      }
+     },
+     "max": 1.15,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "transparent",
+        "value": null
+       },
+       {
+        "color": "#ABA69C",
+        "value": 1
+       }
+      ]
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#F3F1EC"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI, return type"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#F3F1EC"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-granian"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar on Granian"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "fastapi-typed-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "FastAPI + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + access log"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#80CBC4"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x2"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + CORS, headers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#CE93D8"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-x3"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar + gzip"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-w1"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 1 worker"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#ABA69C"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-w4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 4 workers"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FFCC66"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "flask-t8"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Flask, 8 threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#7FB2FF"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-t8"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-p4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 processes"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#44B78B"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-p4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar, 8 processes"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#EDB641"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "litestar-ft4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Litestar, 8 free-threaded threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "django-ft4"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Django, 8 free-threaded threads"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#FF8A65"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "server"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Python server"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4FC3F7"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "postgres"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Postgres"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#4169E1"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "oha"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "oha (load)"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#ABA69C"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom",
+     "showLegend": true
+    },
+    "tooltip": {
+     "mode": "multi",
+     "sort": "desc"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,442 @@
+{
+ "configs": {
+  "django/users": {
+   "rps": 2946.45,
+   "rps_runs": [
+    2898.65,
+    2912.75,
+    2946.45,
+    2946.8,
+    3002.55
+   ],
+   "cores": 1,
+   "core_busy": 1.0,
+   "core_busy_min": 0.9994994994994995,
+   "us_per_request": 339.39147109233147,
+   "p50_ms": 21.596292,
+   "p99_ms": 26.424792240000006,
+   "pss_mb": 140.1484375,
+   "processes": 3.0,
+   "threads": 4.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.15833252652743207,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    110,
+    56,
+    56,
+    104,
+    128
+   ],
+   "spread_pct": 3.526277384649327
+  },
+  "django/users-post": {
+   "rps": 2382.2,
+   "rps_runs": [
+    2356.45,
+    2363.85,
+    2382.2,
+    2409.95,
+    2506.45
+   ],
+   "cores": 1,
+   "core_busy": 0.9989994997498749,
+   "core_busy_min": 0.9989994997498749,
+   "us_per_request": 419.780035261523,
+   "p50_ms": 26.597541500000002,
+   "p99_ms": 35.22492588,
+   "pss_mb": 137.6923828125,
+   "processes": 3.0,
+   "threads": 4.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.13055988840374225,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    109,
+    60,
+    56,
+    117,
+    128
+   ],
+   "spread_pct": 6.2967005289228455
+  },
+  "django-t8/users-db": {
+   "rps": 1778.15,
+   "rps_runs": [
+    1734.2,
+    1774.55,
+    1778.15,
+    1782.6,
+    1790.15
+   ],
+   "cores": 1,
+   "core_busy": 1.0,
+   "core_busy_min": 1.0,
+   "us_per_request": 562.3822512161516,
+   "p50_ms": 34.930707999999996,
+   "p99_ms": 61.384657339999976,
+   "pss_mb": 103.517578125,
+   "processes": 2.0,
+   "threads": 15.0,
+   "postgres_cpu": 0.2061160149307477,
+   "oha_cpu": 0.05166820534777261,
+   "gil_enabled": [],
+   "mac_background_cpu_pct": [
+    91,
+    64,
+    53,
+    83,
+    131
+   ],
+   "spread_pct": 3.146528695554371
+  },
+  "fastapi/users": {
+   "rps": 2764.7,
+   "rps_runs": [
+    2717.1,
+    2737.15,
+    2764.7,
+    2782.5,
+    2790.0
+   ],
+   "cores": 1,
+   "core_busy": 1.0,
+   "core_busy_min": 1.0,
+   "us_per_request": 361.70289724020694,
+   "p50_ms": 22.706583499999997,
+   "p99_ms": 44.66853481999999,
+   "pss_mb": 71.509765625,
+   "processes": 1.0,
+   "threads": 5.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.053613394830189356,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    97,
+    75,
+    67,
+    107,
+    129
+   ],
+   "spread_pct": 2.636814120881112
+  },
+  "fastapi-typed/users": {
+   "rps": 8377.55,
+   "rps_runs": [
+    8144.0,
+    8286.3,
+    8377.55,
+    8425.8,
+    8490.95
+   ],
+   "cores": 1,
+   "core_busy": 0.9995,
+   "core_busy_min": 0.9994969818913481,
+   "us_per_request": 119.36664060495015,
+   "p50_ms": 7.434125,
+   "p99_ms": 14.7004795,
+   "pss_mb": 68.2568359375,
+   "processes": 1.0,
+   "threads": 5.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.15075483538910378,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    148,
+    90,
+    83,
+    103,
+    161
+   ],
+   "spread_pct": 4.141425595788753
+  },
+  "fastapi-typed/users-db": {
+   "rps": 2782.6,
+   "rps_runs": [
+    2710.1,
+    2762.7,
+    2782.6,
+    2782.8,
+    2816.3
+   ],
+   "cores": 1,
+   "core_busy": 0.9995,
+   "core_busy_min": 0.9994987468671679,
+   "us_per_request": 359.37612305038454,
+   "p50_ms": 22.329833,
+   "p99_ms": 42.85784325,
+   "pss_mb": 77.6279296875,
+   "processes": 1.0,
+   "threads": 5.0,
+   "postgres_cpu": 0.32472285069505397,
+   "oha_cpu": 0.07583307249966394,
+   "gil_enabled": [],
+   "mac_background_cpu_pct": [
+    99,
+    169,
+    55,
+    138,
+    130
+   ],
+   "spread_pct": 3.816574426795093
+  },
+  "fastapi-typed/users-post": {
+   "rps": 11614.75,
+   "rps_runs": [
+    11372.45,
+    11445.55,
+    11614.75,
+    11756.75,
+    11776.25
+   ],
+   "cores": 1,
+   "core_busy": 0.9994982438534872,
+   "core_busy_min": 0.9994959677419355,
+   "us_per_request": 86.09741922985859,
+   "p50_ms": 5.380707999999999,
+   "p99_ms": 10.878399959999998,
+   "pss_mb": 69.1904296875,
+   "processes": 1.0,
+   "threads": 5.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.1972218384026935,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    83,
+    55,
+    54,
+    127,
+    130
+   ],
+   "spread_pct": 3.4766137885016835
+  },
+  "flask/users": {
+   "rps": 4835.85,
+   "rps_runs": [
+    4747.2,
+    4798.9,
+    4835.85,
+    4842.55,
+    4957.25
+   ],
+   "cores": 1,
+   "core_busy": 1.0,
+   "core_busy_min": 0.9979969954932398,
+   "us_per_request": 206.78887889409307,
+   "p50_ms": 13.182708,
+   "p99_ms": 16.707863279999955,
+   "pss_mb": 120.689453125,
+   "processes": 3.0,
+   "threads": 4.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.2416732382655078,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    153,
+    102,
+    58,
+    110,
+    126
+   ],
+   "spread_pct": 4.343600401170429
+  },
+  "flask/users-post": {
+   "rps": 5142.6,
+   "rps_runs": [
+    5094.9,
+    5132.85,
+    5142.6,
+    5143.15,
+    5206.6
+   ],
+   "cores": 1,
+   "core_busy": 0.9984992496248124,
+   "core_busy_min": 0.9984992496248124,
+   "us_per_request": 194.45416715280206,
+   "p50_ms": 12.346791,
+   "p99_ms": 15.532475910000024,
+   "pss_mb": 120.4716796875,
+   "processes": 3.0,
+   "threads": 4.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.26193843138928513,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    105,
+    96,
+    61,
+    133,
+    125
+   ],
+   "spread_pct": 2.1720530470968136
+  },
+  "flask-t8/users-db": {
+   "rps": 2667.5,
+   "rps_runs": [
+    2630.45,
+    2662.55,
+    2667.5,
+    2670.3,
+    2714.0
+   ],
+   "cores": 1,
+   "core_busy": 0.999,
+   "core_busy_min": 0.999,
+   "us_per_request": 374.88284910965325,
+   "p50_ms": 23.5251255,
+   "p99_ms": 37.408050339999996,
+   "pss_mb": 91.6982421875,
+   "processes": 2.0,
+   "threads": 15.0,
+   "postgres_cpu": 0.3074922691647344,
+   "oha_cpu": 0.07416473374951564,
+   "gil_enabled": [],
+   "mac_background_cpu_pct": [
+    108,
+    152,
+    77,
+    99,
+    130
+   ],
+   "spread_pct": 3.13214620431116
+  },
+  "flask-w1/users-db": {
+   "rps": 1697.45,
+   "rps_runs": [
+    1675.4,
+    1689.1,
+    1697.45,
+    1713.4,
+    1713.55
+   ],
+   "cores": 1,
+   "core_busy": 0.684400826446281,
+   "core_busy_min": 0.684400826446281,
+   "us_per_request": null,
+   "p50_ms": 38.80325,
+   "p99_ms": 54.802291319999995,
+   "pss_mb": 86.32421875,
+   "processes": 2.0,
+   "threads": 7.0,
+   "postgres_cpu": 0.1799883745488102,
+   "oha_cpu": 0.10249335636976359,
+   "gil_enabled": [],
+   "mac_background_cpu_pct": [
+    104,
+    67,
+    64,
+    110,
+    128
+   ],
+   "spread_pct": 2.2474888803793847
+  },
+  "litestar/users": {
+   "rps": 18943.5,
+   "rps_runs": [
+    18096.9,
+    18811.3,
+    18943.5,
+    18945.95,
+    19106.6
+   ],
+   "cores": 1,
+   "core_busy": 0.9994994994994995,
+   "core_busy_min": 0.9994967287367891,
+   "us_per_request": 52.78855544118035,
+   "p50_ms": 3.295292,
+   "p99_ms": 6.367173519999999,
+   "pss_mb": 72.220703125,
+   "processes": 1.0,
+   "threads": 6.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.26055349170400166,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    87,
+    103,
+    80,
+    104,
+    124
+   ],
+   "spread_pct": 5.330060442895965
+  },
+  "litestar/users-db": {
+   "rps": 3796.0,
+   "rps_runs": [
+    3771.9,
+    3787.85,
+    3796.0,
+    3812.05,
+    3820.65
+   ],
+   "cores": 1,
+   "core_busy": 1.0,
+   "core_busy_min": 0.999,
+   "us_per_request": 263.43519494204423,
+   "p50_ms": 16.4675625,
+   "p99_ms": 34.22211151999999,
+   "pss_mb": 79.6533203125,
+   "processes": 1.0,
+   "threads": 6.0,
+   "postgres_cpu": 0.39301064315032797,
+   "oha_cpu": 0.08610196360146155,
+   "gil_enabled": [],
+   "mac_background_cpu_pct": [
+    125,
+    79,
+    54,
+    121,
+    134
+   ],
+   "spread_pct": 1.2842465753424657
+  },
+  "litestar/users-post": {
+   "rps": 16857.5,
+   "rps_runs": [
+    16539.05,
+    16749.9,
+    16857.5,
+    17130.1,
+    17634.95
+   ],
+   "cores": 1,
+   "core_busy": 0.9994959677419355,
+   "core_busy_min": 0.9994959677419355,
+   "us_per_request": 59.32077710218004,
+   "p50_ms": 3.650333,
+   "p99_ms": 8.102751660000001,
+   "pss_mb": 73.8740234375,
+   "processes": 1.0,
+   "threads": 6.0,
+   "postgres_cpu": 0.0,
+   "oha_cpu": 0.2586332556305495,
+   "gil_enabled": [
+    "True"
+   ],
+   "mac_background_cpu_pct": [
+    122,
+    86,
+    58,
+    97,
+    148
+   ],
+   "spread_pct": 6.500963962627919
+  }
+ }
+}

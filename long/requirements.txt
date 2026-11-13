@@ -1,0 +1,13 @@
+# Python 3.14.8. Pinned to what the rig installed for the measured session (results/versions.txt records it again).
+fastapi==0.143.2
+pydantic[email]
+uvicorn[standard]==0.54.0
+litestar==2.24.0
+msgspec==0.22.0
+flask==3.1.3
+django==6.1.2
+djangorestframework==3.18.3
+gunicorn==26.2.0
+psycopg[binary]==3.3.6
+psycopg-pool==3.3.3
+py-spy==0.4.2

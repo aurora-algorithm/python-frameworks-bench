@@ -1,0 +1,14 @@
+# The server under test is whatever runs from the bench's Python venv (one at a time, with all its workers and
+# threads); then every Postgres backend as "postgres", oha, and the monitoring itself. Memory is
+# gathered from smaps, so pages shared by forked workers count once.
+process_names:
+  - name: server
+    cmdline:
+      - 'pybench/\.venv'
+  - name: "{{.ExeBase}}"
+    exe:
+      - postgres
+      - oha
+      - prometheus
+      - process-exporter
+      - grafana

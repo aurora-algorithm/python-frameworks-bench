@@ -2,6 +2,8 @@
 
 Code and per-run results behind the "Which Python framework is fastest?" Short: FastAPI, Litestar, Flask and Django on Python 3.14.
 
+The long video's benchmark is in [`long/`](long/): typed and untyped FastAPI side by side, and Flask and Django with workers vs threads on Postgres.
+
 ## What is measured
 - **Test 1 — plain JSON:** `GET /users` returns the same 50 users (4,116 bytes, identical across all frameworks).
 - **Test 2 — validated input:** `POST /users` with `{"name","email","age"}`; each framework validates it (FastAPI + Pydantic, Litestar + msgspec, Flask + Pydantic, Django + DRF serializer) and replies 201 with the created object.
